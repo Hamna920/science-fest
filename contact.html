@@ -392,6 +392,8 @@
                 // Send the form data to PageClip
                 fetch(form.action, {
                     method: 'POST',
+                    mode: 'no-cors',
+                    method: 'POST',
                     body: formData
                 })
                 .then(response => {
