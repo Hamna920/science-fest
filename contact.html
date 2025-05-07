@@ -394,22 +394,13 @@
                     body: new URLSearchParams(formData)
                 })
                 .then(response => {
-                    if (response.ok) {
-                        // Reset form
-                        form.reset();
-                        // Reset button
-                        submitButton.innerHTML = originalText;
-                        submitButton.disabled = false;
-                        alert("Thank you for your message!");
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
+                    // Reset form
+                    form.reset();
                     // Reset button
                     submitButton.innerHTML = originalText;
                     submitButton.disabled = false;
+                    // Show success message
+                    alert("Thank you for your message!");
                 });
             });
         });
