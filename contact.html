@@ -241,8 +241,7 @@
                 
                 <div class="contact-form">
                     <h2 class="mb-4">Send Us a Message</h2>
-                    <!-- Updated contact form to use PageClip -->
-                    <form id="contactForm" method="post" class="pageclip-form" data-pageclip="true">
+                    <form id="contactForm" action="https://formsubmit.co/info@sciencefestival.edu" method="POST">
                         <div class="form-floating mb-3">
                             <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                             <label for="name">Name</label>
@@ -259,7 +258,14 @@
                             <textarea id="message" name="message" class="form-control" style="height: 150px" placeholder="Your Message" required></textarea>
                             <label for="message">Message</label>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 py-2">
+                        <!-- Honeypot to prevent spam -->
+                        <input type="text" name="_honey" style="display:none">
+                        <!-- Disable Captcha -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Thank you page -->
+                        <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                        <div id="formStatus" class="alert d-none mb-3"></div>
+                        <button type="submit" class="btn btn-primary w-100 py-2" id="submitButton">
                             <i class="bi bi-send"></i> Send Message
                         </button>
                     </form>
@@ -344,8 +350,6 @@
         }
     </style>
 
-    <!-- PageClip Script -->
-    <script src="https://pageclip.co/v1/pageclip.js"></script>
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -363,8 +367,17 @@
             }
         }
 
-        // Ensure the DOM is fully loaded before attaching event listeners.
-        document.addEventListener('DOMContentLoaded', function(){
+        // Form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const submitButton = document.getElementById('submitButton');
+            const formStatus = document.getElementById('formStatus');
+
+            if (!form) {
+                console.error('Contact form not found');
+                return;
+            }
+
             // Add text-to-speech on hover
             document.querySelectorAll('.navbar a, .card h3, .hero h1').forEach(element => {
                 element.addEventListener('mouseover', () => {
@@ -372,16 +385,15 @@
                 });
             });
 
-            // Add form submission handler
-            const form = document.querySelector('.pageclip-form');
-            if (!form) {
-                console.error('Contact form not found');
-                return;
+            // Show status message
+            function showStatus(message, type = 'success') {
+                formStatus.textContent = message;
+                formStatus.className = `alert alert-${type} mb-3`;
+                formStatus.classList.remove('d-none');
             }
-            
+
+            // Form submission handler
             form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
                 // Validate required fields
                 const requiredFields = form.querySelectorAll('[required]');
                 let isValid = true;
@@ -389,53 +401,39 @@
                 requiredFields.forEach(field => {
                     if (!field.value.trim()) {
                         isValid = false;
-                        console.error(`Missing value for ${field.name}`);
+                        field.classList.add('is-invalid');
+                    } else {
+                        field.classList.remove('is-invalid');
                     }
                 });
                 
                 if (!isValid) {
-                    alert('Please fill in all required fields');
+                    e.preventDefault();
+                    showStatus('Please fill in all required fields', 'danger');
                     return;
                 }
-                
+
+                // Validate email format
+                const emailField = form.querySelector('#email');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailField.value)) {
+                    e.preventDefault();
+                    showStatus('Please enter a valid email address', 'danger');
+                    emailField.classList.add('is-invalid');
+                    return;
+                }
+
                 // Show loading state
-                const submitButton = form.querySelector('button[type="submit"]');
-                if (!submitButton) {
-                    console.error('Submit button not found');
-                    return;
-                }
-                
-                const originalText = submitButton.innerHTML;
                 submitButton.innerHTML = '<i class="bi bi-hourglass"></i> Sending...';
                 submitButton.disabled = true;
-                
-                // Send the form data to PageClip
-                fetch('https://send.pageclip.co/JdpzbAlNML7mOSbnK0O1y7o5qvYvrdpQ/contact-form/', {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => {
-                    console.log('Response status:', response.status);
-                    console.log('Response ok:', response.ok);
-                    
-                    if (!response.ok) {
-                        throw new Error('Form submission failed');
+            });
+
+            // Real-time validation
+            form.querySelectorAll('input, textarea').forEach(field => {
+                field.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        this.classList.remove('is-invalid');
                     }
-                    
-                    // Reset form
-                    form.reset();
-                    // Reset button
-                    submitButton.innerHTML = originalText;
-                    submitButton.disabled = false;
-                    // Show success message
-                    alert("Thank you for your message!");
-                })
-                .catch(error => {
-                    console.error('Form submission error:', error);
-                    alert('There was an error submitting your form. Please try again.');
-                    // Reset button on error
-                    submitButton.innerHTML = originalText;
-                    submitButton.disabled = false;
                 });
             });
         });
