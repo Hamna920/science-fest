@@ -377,6 +377,9 @@
                     body: new FormData(form)
                 })
                 .then(response => {
+                    console.log('Response status:', response.status);
+                    console.log('Response ok:', response.ok);
+                    
                     // Reset form
                     form.reset();
                     // Reset button
@@ -384,9 +387,8 @@
                     submitButton.disabled = false;
                     // Show success message
                     alert("Thank you for your message!");
-                });
-            });
-        });
+               
+                    
     </script>
 </body>
 </html>
