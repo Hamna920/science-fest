@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Science and Technology Festival</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #000080;   /* changed to navy blue */
+            --secondary-color: #750a75; /* changed to dark purple */
+            --accent-color: #aa00aa;     /* recovered missing accent color */
+        }
+        
+        /* Additional styles for contact form */
+        .contact-form {
+            background-color: #f3e5f5; /* updated to light purple */
+            color: black; /* ensure text remains legible */
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: rgb(236, 228, 236); /* changed to light purple */
+            color: black; /* updated for readability */
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h2 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .contact-method span {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+        
+        .contact-method p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .social-icons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+    width: 80%;
+    max-width: 400px;
+    margin: 6rem auto; /* increased from 3rem to 6rem */
+    padding: 2rem;
+    border-radius: 8px;
+    background: #670f85; /* darker purple */
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* slightly darker shadow */
+    transition: all 0.5s ease;
+}
+        
+        
+        
+        /* Adjusted text sizes */
+        .hero h1 {
+            font-size: 1.1rem;
+            margin-bottom: 0.7rem;
+        }
+        
+        .hero p {
+            font-size: 0.8rem;
+            max-width: 280px;
+            margin: 0 auto 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Quick Links styling */
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Change navigation bar links to white */
+        .navbar a {
+            color: #fff;
+        }
+        .navbar a.active {
+            color: black;
+        }
+        /* New rule to force the Contact navigation link to be black */
+        .navbar a[href="contact.us.html"] {
+            color: black !important;
+        }
+
+        /* Added rules to set header and navbar to blue */
+        header,
+        .navbar {
+            background-color: rgb(9, 99, 202) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="SF&HH.png" alt="Science Festival and Health & Happiness Logo">
+                <span>Science & Technology Festival</span>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                        <li class="nav-item"><a class="nav-link" href="schedules.html">Schedules</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.us.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Contact Us</h1>
+            <p>Get in touch with the Science and Technology Festival team. We're here to answer your questions and provide more information about the festival.</p>
+        </section>
+
+        <!-- Contact Information and Form -->
+        <section style="margin: 2rem 0;">
+            <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="contact-method">
+                        <span>📍</span>
+                        <p>Burnley College, Princess Way, Burnley BB12 0AN</p>
+                    </div>
+                    <div class="contact-method">
+                        <span>📧</span>
+                        <p>info@sciencefestival.edu</p>
+                    </div>
+                    <div class="contact-method">
+                        <span>📞</span>
+                        <p>01282 733373</p>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i> Facebook</a>
+                        <a href="#"><i class="bi bi-twitter-x"></i> Twitter</a>
+                        <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2 class="mb-4">Send Us a Message</h2>
+                    <!-- Updated contact form to use PageClip -->
+                    <form action="https://send.pageclip.co/JdpzbAlNML7mOSbnK0O1y7o5qvYvrdpQ/contact-form" method="post" class="pageclip-form" data-pageclip="true">
+                        <div class="form-floating mb-3">
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea id="message" name="message" class="form-control" style="height: 150px" placeholder="Your Message" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2">
+                            <i class="bi bi-send"></i> Send Message
+                        </button>
+                    </form>
+                    <div id="success-message" class="alert alert-success" style="display: none; margin-top: 1rem; text-align: center;">
+                        <h3>Thank you for your message!</h3>
+                        <p>We will get back to you shortly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Map -->
+        <section class="my-5 text-center">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title mb-4">Find Us</h2>
+                    <p class="card-text">Burnley College is located in the heart of Burnley, easily accessible by public transport and car.</p>
+                    <div class="mt-4">
+                        <img src="campusmap.jpg" alt="Campus Map" class="img-fluid rounded shadow-sm">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Additional Contact Image -->
+        <section class="text-center mb-5">
+            <img src="contactimage.webp" alt="Contact Us" class="img-fluid rounded shadow-sm">
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>About the Festival</h3>
+                <p>The Science and Technology Festival at Burnley College aims to inspire and educate through interactive experiences with science and technology.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <nav>
+                    <ul style="list-style: none;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="schedules.html">Schedules</a></li>
+                        <li><a href="contact.us.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Burnley College</p>
+                <p>Email: info@sciencefestival.edu</p>
+                <p>Phone: 01282 733373</p>
+            </div>
+        </div>
+        <div class="container text-center" style="padding-top: 1rem; border-top: 1px solid rgba(29, 10, 138, 0.1); margin-top: 1rem;">
+            <p>&copy; 2025 Science and Technology Festival. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        footer {
+            background-color: #000080; /* Dark blue */
+            color: white; /* Ensure text is readable */
+            padding: 2rem 0;
+        }
+    
+        footer a {
+            color: #ffffff; /* Ensure links are white */
+            text-decoration: none;
+        }
+
+        footer a.active {  /* active link styling */
+            color: black;
+            text-decoration: underline;
+        }
+    
+        footer a:hover {
+            color: black; /* active links changed to black when hovering */
+            text-decoration: underline;
+        }
+        /* New rule to change footer titles to orange */
+        footer h3 {
+            color: orange;
+        }
+    </style>
+
+    <!-- PageClip Script -->
+    <script src="https://pageclip.co/v1/pageclip.js"></script>
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <!-- Your existing script -->
+    <script>
+        function speakText(text) {
+            console.log("speakText called with:", text);
+            try {
+                const utterance = new SpeechSynthesisUtterance(text);
+                speechSynthesis.speak(utterance);
+            } catch (error) {
+                console.error("Error in speech synthesis:", error);
+            }
+        }
+        
+        // Ensure the DOM is fully loaded before attaching event listeners.
+        document.addEventListener('DOMContentLoaded', function(){
+            document.querySelectorAll('.navbar a, .card h3, .hero h1').forEach(element => {
+                element.addEventListener('mouseover', () => {
+                    speakText(element.textContent);
+                });
+            });
+
+            // Add form submission handler
+            const form = document.querySelector('.pageclip-form');
+            const successMessage = document.getElementById('success-message');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.innerHTML;
+                submitButton.innerHTML = '<i class="bi bi-hourglass"></i> Sending...';
+                submitButton.disabled = true;
+                
+                // Create a FormData object
+                const formData = new FormData(form);
+                
+                // Send the form data to PageClip
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        form.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

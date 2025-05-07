@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedules - Science and Technology Festival</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Improved color scheme */
+        :root {
+            --primary-color: #000080;   /* Changed to navy blue */
+            --secondary-color: #1565C0; /* Deep blue for secondary elements */
+        }
+        
+        /* Additional styles for schedule tables */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 2rem;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .schedule-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .schedule-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .schedule-table tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .date-header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 15px;
+            margin-top: 2rem;
+            border-radius: 4px;
+        }
+        
+        /* Smaller hero text box with comfortable spacing */
+        .hero {
+            max-width: 320px;
+            margin: 8rem auto;
+            padding: 1.2rem 1rem;
+            border-radius: 8px;
+            background: #4B0082; /* changed to dark purple */
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Adjusted text sizes */
+        .hero h1 {
+            font-size: 1.1rem;
+            margin-bottom: 0.7rem;
+        }
+        
+        .hero p {
+            font-size: 0.8rem;
+            max-width: 280px;
+            margin: 0 auto 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Quick Links styling */
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* Navigation bar link color override */
+        .navbar-nav .nav-link,
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            color: white;
+        }
+        .navbar-nav .nav-link.active {
+            color: black !important;
+        }
+
+        /* New styles for header and navbar */
+        header, .navbar {
+            background-color: #0576d3; /* Blue shade */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="SF&HH.png" alt="Science Festival and Health & Happiness Logo">
+                <span>Science & Technology Festival</span>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="schedules.html">Schedules</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.us.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <style>
+        /* Smaller hero text box with blue background */
+        .hero {
+            max-width: 280px; /* Reduced width */
+            margin: 6rem auto; /* Adjusted margin */
+            padding: 1rem; /* Reduced padding */
+            border-radius: 8px;
+            background: #0000FF; /* Changed to blue */
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            min-height: 150px; /* Reduced height */
+            display: flex;
+
+            flex-direction: column;
+        justify-content: center;
+    }
+</style>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Festival Schedule</h1>
+            <p>Plan your visit to the Science and Technology Festival with our comprehensive schedule of events and activities. The festival runs on June 28th, 2025.</p>
+        </section>
+
+        <!-- Schedule Image -->
+        <div class="text-center" style="margin: 2rem auto; width: 80%;">
+            <img src="sciencepost.jpg" alt="Schedule Overview" style="min-width: 600px; min-height: 300px; width: 100%; height: auto; object-fit: cover; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.2);">
+        </div>
+
+        <!-- Festival Schedule -->
+        <section id="schedule">
+            <div class="card shadow-sm mb-5">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0 h4">June 28, 2025</h2>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                    <th>Location</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-nowrap">9:00 AM</td>
+                                    <td>Registration Opens</td>
+                                    <td>Main Entrance</td>
+                                    <td>Check-in and collect your festival passes</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">10:00 AM - 11:30 AM</td>
+                                    <td>Opening Ceremony</td>
+                                    <td>Main Auditorium</td>
+                                    <td>Official opening with guest speakers</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">11:45 AM - 1:00 PM</td>
+                                    <td>Hands-on Science Activities</td>
+                                    <td>Exhibition Hall</td>
+                                    <td>Various interactive science demonstrations</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">1:00 PM - 2:00 PM</td>
+                                    <td>Lunch Break</td>
+                                    <td>Cafeteria</td>
+                                    <td>Food and refreshments available for purchase</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">2:00 PM - 3:30 PM</td>
+                                    <td>Paper Rocket Workshop</td>
+                                    <td>Main Hall</td>
+                                    <td>Create and launch your own paper rockets</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">3:45 PM - 4:45 PM</td>
+                                    <td>Slime Making Workshop</td>
+                                    <td>Room B12</td>
+                                    <td>Fun with slime creation and chemistry</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">5:00 PM - 6:30 PM</td>
+                                    <td>Closing Ceremony & Awards</td>
+                                    <td>Main Auditorium</td>
+                                    <td>Presenting awards and closing the festival</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notes -->
+        <section class="mb-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0 h4">Important Notes</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            All activities are included with your festival admission.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+                            Some workshops have limited capacity and are first-come, first-served.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-info-circle-fill text-info me-2"></i>
+                            The schedule is subject to minor changes. Check information boards at the venue.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-clock-fill text-primary me-2"></i>
+                            Please arrive 15 minutes early for workshops and presentations.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-question-circle-fill text-secondary me-2"></i>
+                            Information desks are located at the Main Entrance and Exhibition Hall.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map -->
+        <section class="text-center mb-5">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0 h4">Finding Your Way</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Use our campus map to navigate to the different event locations</p>
+                    <img src="compusmap.jpg" alt="Campus Map" class="img-fluid rounded mt-3">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>About the Festival</h3>
+                <p>The Science and Technology Festival at Burnley College aims to inspire and educate through interactive experiences with science and technology.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <nav>
+                    <ul style="list-style: none;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="schedules.html">Schedules</a></li>
+                        <li><a href="contact.us.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Burnley College</p>
+                <p>Email: info@sciencefestival.edu</p>
+                <p>Phone: 01282 733373</p>
+            </div>
+        </div>
+        <div class="container text-center" style="padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem;">
+            <p>&copy; 2025 Science and Technology Festival. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        footer {
+            background-color: #333333; /* changed to dark grey */
+            color: white; /* Ensure text is readable */
+            padding: 2rem 0;
+        }
+    
+        footer a {
+            color: #ffffff; /* Ensure links are white */
+            text-decoration: none;
+        }
+    
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Your existing script -->
+    <script>
+        function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(utterance);
+        }
+
+        // Add event listeners for navigation and important elements
+        document.querySelectorAll('.navbar a, .card h3, .hero h1').forEach(element => {
+            element.addEventListener('mouseover', () => {
+                speakText(element.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
+
