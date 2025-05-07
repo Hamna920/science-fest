@@ -242,7 +242,7 @@
                 <div class="contact-form">
                     <h2 class="mb-4">Send Us a Message</h2>
                     <!-- Updated contact form to use PageClip -->
-                    <form action="https://send.pageclip.co/JdpzbAlNML7mOSbnK0O1y7o5qvYvrdpQ/contact-form" method="post" class="pageclip-form" data-pageclip="true">
+                    <form id="contactForm" method="post" class="pageclip-form" data-pageclip="true">
                         <div class="form-floating mb-3">
                             <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                             <label for="name">Name</label>
@@ -390,10 +390,9 @@
                 const formData = new FormData(form);
                 
                 // Send the form data to PageClip
-                fetch(form.action, {
+                fetch('https://send.pageclip.co/JdpzbAlNML7mOSbnK0O1y7o5qvYvrdpQ/contact-form/', {
                     method: 'POST',
                     mode: 'no-cors',
-                    method: 'POST',
                     body: formData
                 })
                 .then(response => {
