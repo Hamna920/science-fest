@@ -351,8 +351,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <!-- Your existing script -->
     <script>
+        // Text-to-speech function
+        function speakText(text) {
+            if (typeof text === 'string' && text.trim()) {
+                try {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    speechSynthesis.speak(utterance);
+                } catch (error) {
+                    console.error('Text-to-speech error:', error);
+                }
+            }
+        }
+
         // Ensure the DOM is fully loaded before attaching event listeners.
         document.addEventListener('DOMContentLoaded', function(){
+            // Add text-to-speech on hover
             document.querySelectorAll('.navbar a, .card h3, .hero h1').forEach(element => {
                 element.addEventListener('mouseover', () => {
                     speakText(element.textContent);
@@ -361,12 +374,37 @@
 
             // Add form submission handler
             const form = document.querySelector('.pageclip-form');
+            if (!form) {
+                console.error('Contact form not found');
+                return;
+            }
             
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // Validate required fields
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        console.error(`Missing value for ${field.name}`);
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
                 // Show loading state
                 const submitButton = form.querySelector('button[type="submit"]');
+                if (!submitButton) {
+                    console.error('Submit button not found');
+                    return;
+                }
+                
                 const originalText = submitButton.innerHTML;
                 submitButton.innerHTML = '<i class="bi bi-hourglass"></i> Sending...';
                 submitButton.disabled = true;
@@ -380,6 +418,10 @@
                     console.log('Response status:', response.status);
                     console.log('Response ok:', response.ok);
                     
+                    if (!response.ok) {
+                        throw new Error('Form submission failed');
+                    }
+                    
                     // Reset form
                     form.reset();
                     // Reset button
@@ -387,8 +429,16 @@
                     submitButton.disabled = false;
                     // Show success message
                     alert("Thank you for your message!");
-               
-                    
+                })
+                .catch(error => {
+                    console.error('Form submission error:', error);
+                    alert('There was an error submitting your form. Please try again.');
+                    // Reset button on error
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                });
+            });
+        });
     </script>
 </body>
 </html>
