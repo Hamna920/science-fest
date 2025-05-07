@@ -263,10 +263,6 @@
                             <i class="bi bi-send"></i> Send Message
                         </button>
                     </form>
-                    <div id="success-message" class="alert alert-success" style="display: none; margin-top: 1rem; text-align: center;">
-                        <h3>Thank you for your message!</h3>
-                        <p>We will get back to you shortly.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -375,7 +371,6 @@
 
             // Add form submission handler
             const form = document.querySelector('.pageclip-form');
-            const successMessage = document.getElementById('success-message');
             
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -400,13 +395,12 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Show success message
-                        successMessage.style.display = 'block';
                         // Reset form
                         form.reset();
                         // Reset button
                         submitButton.innerHTML = originalText;
                         submitButton.disabled = false;
+                        alert("Thank you for your message!");
                     } else {
                         throw new Error('Form submission failed');
                     }
