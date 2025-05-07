@@ -351,15 +351,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <!-- Your existing script -->
     <script>
-        function speakText(text) {
-            console.log("speakText called with:", text);
-            try {
-                const utterance = new SpeechSynthesisUtterance(text);
-                speechSynthesis.speak(utterance);
-            } catch (error) {
-                console.error("Error in speech synthesis:", error);
-            }
-        }
+        
+        
+        
         
         // Ensure the DOM is fully loaded before attaching event listeners.
         document.addEventListener('DOMContentLoaded', function(){
