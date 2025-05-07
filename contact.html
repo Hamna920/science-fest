@@ -390,26 +390,32 @@
                 const formData = new FormData(form);
                 
                 // Send the form data to PageClip
-                fetch('https://send.pageclip.co/JdpzbAlNML7mOSbnK0O1y7o5qvYvrdpQ/contact-form/', {
+                fetch('https://send.pageclip.co/JdpzbAlNML7mOSbnK0O1y7o5qvYvrdpQ/contact-form', {
                     method: 'POST',
-                    mode: 'no-cors',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept': 'application/json'
+                    },
+                    body: new URLSearchParams(formData)
                 })
                 .then(response => {
                     if (response.ok) {
                         // Show success message
                         successMessage.style.display = 'block';
+                        // Reset form
                         form.reset();
+                        // Reset button
+                        submitButton.innerHTML = originalText;
+                        submitButton.disabled = false;
                     } else {
                         throw new Error('Form submission failed');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('There was an error submitting the form. Please try again.');
-                })
-                .finally(() => {
-                    // Reset button state
+                    // Show error message
+                    alert('There was an error submitting your form. Please try again later.');
+                    // Reset button
                     submitButton.innerHTML = originalText;
                     submitButton.disabled = false;
                 });
@@ -418,5 +424,3 @@
     </script>
 </body>
 </html>
-
-
